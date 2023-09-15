@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        img{
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="container">
+        <img onclick="changeimage1()" data-id="funny" src="image/funny1x1.jpg" alt="" id="image-1">
+    </div>
+    <div>
+        <img onclick="changeimage2()"  src="image/panda2x1.jpg" data-id="panda" alt="" id="image-2" >
+    </div>
+
+</div>
+<script>
+    function changeimage1(){
+        let image = document.getElementById("image-1");
+        let typeImage = image.getAttribute("data-id");
+        if (typeImage==="funny"){
+            image.src = "image/panda1x1.jpg"
+            image.setAttribute("data-id","panda")
+        } else {
+            image.src = "image/funny1x1.jpg"
+            image.setAttribute("data-id","funny")
+        }
+        checkWin();
+    }
+    function changeimage2(){
+        let image = document.getElementById("image-2");
+        let typeImage = image.getAttribute("data-id");
+        if (typeImage==="funny"){
+            image.src = "image/panda1x1.jpg"
+            image.setAttribute("data-id","panda")
+        } else {
+            image.src = "image/funny1x1.jpg"
+            image.setAttribute("data-id","funny")
+        }
+        checkWin();
+    }
+
+    function checkWin(){
+        let image1 = document.getElementById("image-1")
+        let image2 = document.getElementById("image-2")
+
+        let typeImage1 = image1.getAttribute("data-id")
+        let typeImage2 = image2.getAttribute("data-id")
+        if (typeImage1 === typeImage2){
+            image1.style.border = "2px solid red";
+            image2.style.border = "2px solid red";
+        }else{
+            image1.style.border = "none";
+            image2.style.border = "none";
+        }
+    }
+</script>
+</body>
+</html>
