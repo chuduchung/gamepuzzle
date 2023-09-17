@@ -12,53 +12,135 @@
 <body>
 <div>
     <div class="container">
-        <img onclick="changeimage1()" data-id="funny" src="image/funny1x1.jpg" alt="" id="image-1">
+        <img onclick="changeImage1()" data-id="funny" src="image/funny1x1.jpg" id="image-1">
     </div>
     <div>
-        <img onclick="changeimage2()"  src="image/panda2x1.jpg" data-id="panda" alt="" id="image-2" >
+        <img onclick="changeImage2()" data-id="panda" src="image/funny2x1.jpg" id="image-2" >
     </div>
-
+    <div>
+        <img onclick="changeImage3()" data-id="monkey" src="image/funny3x1.jpg" id="image-3">
+    </div>
+    <div>
+        <img onclick="changeImage4()" data-id="funny" src="image/funny4x1.jpg" id="image-4">
+    </div>
+    <div>
+        <img onclick="changeImage5()" data-id="panda" src="image/panda5x1.jpg" id="image-5">
+    </div>
 </div>
 <script>
-    function changeimage1(){
+    function changeImage1(){
         let image = document.getElementById("image-1");
         let typeImage = image.getAttribute("data-id");
-        if (typeImage==="funny"){
-            image.src = "image/panda1x1.jpg"
-            image.setAttribute("data-id","panda")
-        } else {
+        if (typeImage === "funny"){
+            image.src = "image/panda1x1.jpg";
+            image.setAttribute("data-id","panda");
+        } else if (typeImage==="panda"){
+            image.src = "image/monkey1x1.jpg";
+            image.setAttribute("data-id","monkey");
+        }else {
             image.src = "image/funny1x1.jpg"
             image.setAttribute("data-id","funny")
         }
+        // typeImage == monkey => hien anh funny
         checkWin();
     }
-    function changeimage2(){
+    function changeImage2(){
         let image = document.getElementById("image-2");
         let typeImage = image.getAttribute("data-id");
         if (typeImage==="funny"){
-            image.src = "image/panda1x1.jpg"
-            image.setAttribute("data-id","panda")
+            image.src = "image/panda2x1.jpg";
+            image.setAttribute("data-id","panda");
+        } else if (typeImage==="panda"){
+            image.src = "image/monkey2x1.jpg";
+            image.setAttribute("data-id","monkey");
         } else {
-            image.src = "image/funny1x1.jpg"
-            image.setAttribute("data-id","funny")
+            image.src = "image/funny2x1.jpg";
+            image.setAttribute("data-id","funny");
         }
         checkWin();
     }
 
-    function checkWin(){
-        let image1 = document.getElementById("image-1")
-        let image2 = document.getElementById("image-2")
+    function changeImage3(){
+        let image = document.getElementById("image-3");
+        let typeImage = image.getAttribute("data-id");
+        if (typeImage === "funny"){
+            image.src = "image/panda3x1.jpg";
+            image.setAttribute("data-id","panda");
+        }else if (typeImage==="panda"){
+            image.src = "image/monkey3x1.jpg";
+            image.setAttribute("data-id","monkey");
+        }else {
+            image.src = "image/funny3x1.jpg";
+            image.setAttribute("data-id","funny");
+        }
+        checkWin();
+    }
 
-        let typeImage1 = image1.getAttribute("data-id")
-        let typeImage2 = image2.getAttribute("data-id")
-        if (typeImage1 === typeImage2){
+
+    function checkWin(){
+        let image1 = document.getElementById("image-1");
+        let image2 = document.getElementById("image-2");
+        let image3 = document.getElementById("image-3");
+        let image4 = document.getElementById("image-4");
+        let image5 = document.getElementById("image-5");
+
+        let typeImage1 = image1.getAttribute("data-id");
+        let typeImage2 = image2.getAttribute("data-id");
+        let typeImage3 = image3.getAttribute("data-id");
+        let typeImage4 = image4.getAttribute("data-id");
+        let typeImage5 = image5.getAttribute("data-id");
+
+        if ((typeImage1 === typeImage2 && typeImage1 === typeImage3 && typeImage1 === typeImage4 && typeImage1 === typeImage5) ||
+            (typeImage2 === typeImage1 && typeImage2 === typeImage3 && typeImage2 === typeImage4 && typeImage2 === typeImage5) ||
+            (typeImage3 === typeImage1 && typeImage3 === typeImage2 && typeImage3 === typeImage4 && typeImage3 === typeImage5) ||
+            (typeImage4 === typeImage1 && typeImage4 === typeImage2 && typeImage4 === typeImage3 && typeImage4 === typeImage5)){
             image1.style.border = "2px solid red";
             image2.style.border = "2px solid red";
-        }else{
+            image3.style.border = "2px solid red";
+            image4.style.border = "2px solid red";
+            image5.style.border = "2px solid red";
+        }
+        else {
             image1.style.border = "none";
             image2.style.border = "none";
+            image3.style.border = "none";
+            image4.style.border = "none";
+            image5.style.border = "none";
         }
     }
+
+    function changeImage4() {
+        let image = document.getElementById("image-4");
+        let typeImage = image.getAttribute("data-id");
+        if (typeImage === "funny"){
+            image.src = "image/panda4x1.jpg";
+            image.setAttribute("data-id","panda");
+        }else if (typeImage==="panda"){
+            image.src = "image/monkey4x1.jpg";
+            image.setAttribute("data-id","monkey");
+        }else {
+            image.src = "image/funny4x1.jpg";
+            image.setAttribute("data-id","funny");
+        }
+        checkWin();
+    }
+
+    function changeImage5() {
+        let image = document.getElementById("image-5");
+        let typeImage = image.getAttribute("data-id");
+        if (typeImage === "funny"){
+            image.src = "image/panda5x1.jpg";
+            image.setAttribute("data-id","panda");
+        }else if (typeImage==="panda"){
+            image.src = "image/monkey5x1.jpg";
+            image.setAttribute("data-id","monkey");
+        }else {
+            image.src = "image/funny5x1.jpg";
+            image.setAttribute("data-id","funny");
+        }
+        checkWin();
+    }
+
 </script>
 </body>
 </html>
